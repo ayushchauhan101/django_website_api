@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <div class="min-w-screen mx-auto min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-4">
+        <header>
+          <div class="container mx-auto min-w-full rounded-md bg-white/40 p-2">
+            <div class="flex justify-between space-x-4 rounded-md bg-slate-200/10 p-2">
+              <div class="rounded-md bg-white p-2">Home</div>
+              <div class="flex space-x-4">
+                <div class="rounded-md bg-white p-2">About</div>
+                <div class="rounded-md bg-white p-2">View Raw Api</div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- main body -->
+
+        <div class="container mx-auto min-w-full min-h-screen rounded-md bg-white/40 font-serif text-black">
+            <!-- grids -->
+            <div class="m-3 grid grid-cols-1 gap-4 p-2 md:grid-cols-3 md:gap-4">
+
+                {% for i in response %}
+                    <!-- card container -->
+                    <div class="container mx-auto rounded-md text-center hover:scale-105 transition duration-500">
+                        <!-- flex items -->
+                        <div class="flex-col items-center justify-between">
+                        <!-- outer container -->
+                        <div class="container rounded-md bg-slate-400/30 p-1">
+
+                            <!-- upper item -->
+                            <div class="min-w-fit rounded-t-md bg-slate-200 text-2xl">{{i.name}}</div>
+                            <!-- lower item -->
+                            <div class="min-w-fit rounded-b-md bg-slate-400/50">
+                                {{i.price}}/- 
+                            <br />
+                            valid for {{i.validity}} days, 
+                            <br>
+                            {{i.dailyinternet}} GB/day
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+              {% endfor %}
+            </div>
+          </div>
+      
+          <footer>
+            <div class="container mx-auto min-w-full rounded-md bg-white/40 p-2 mt-4">
+                <div class="flex justify-between space-x-4 rounded-md bg-slate-200/10 p-2">
+                
+                    <div class="rounded-md p-2">Contact US</div>                  
+                    <div class="rounded-md p-2">GitHub</div>                  
+                  
+                </div>
+              </div>
+          </footer>
+
+</html>
+
+<!-- {% for i in response %}
+                            
+The pack <b>{{i.name}}</b> 
+is priced {{i.price}}/-
+and valid for {{i.validity}} days,
+with {{i.dailyinternet}}GB/day
+
+{% endfor %}
+                     -->
